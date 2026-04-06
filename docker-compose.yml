@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: inventory_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: roni
+      POSTGRES_PASSWORD: roni123
+      POSTGRES_DB: inventory_db
+      TZ: Asia/Jakarta
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
